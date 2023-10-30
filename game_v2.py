@@ -24,6 +24,30 @@ def random_predict(number: int = 1) -> int:
     return count
 
 
+def binary_search_predict(number: int = 1) -> int:
+    """
+    Угадывает число с помощью бинарного поиска
+    Args:
+        number: угадываемое число
+
+    Returns:
+        int: число попыток
+    """
+    count = 0
+    start = 1
+    end = 100
+    while True:
+        count += 1
+        mid = (start + end) // 2
+        if mid < number:
+            start = mid + 1
+        elif mid > number:
+            end = mid - 1
+        elif mid == number:
+            break
+    return count
+
+
 def score_game(random_predict) -> int:
     """За какое количство попыток в среднем за 1000 подходов угадывает наш алгоритм
 
